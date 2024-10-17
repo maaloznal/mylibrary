@@ -195,4 +195,12 @@ input#searchBtn {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+header {
+  margin: 45px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
 }
