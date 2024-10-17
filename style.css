@@ -174,7 +174,8 @@ input#searchBtn {
     display: flex;
     justify-content: space-around;
     margin: 20px 0;
-    flex-direction: column-reverse;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .book {
   display: flex;
