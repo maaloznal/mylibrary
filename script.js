@@ -24,7 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let addBookMainInput = document.querySelector("#addBookMainInput");
   let searchBookMainInput = document.querySelector("#searchBookMainInput");
   let addBookNestedInputs = document.querySelector("#addBookNestedInputs");
-  let searchBookNestedInputs = document.querySelector("#searchBookNestedInputs");
+  let searchBookNestedInputs = document.querySelector(
+    "#searchBookNestedInputs"
+  );
 
   let wholeList = {
     newBooks: [],
@@ -33,17 +35,25 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   addBookMainInput.addEventListener("click", () => {
-    addBookNestedInputs.style.display = addBookNestedInputs.style.display === "flex" ? "none" : "flex";
+    addBookNestedInputs.style.display =
+      addBookNestedInputs.style.display === "flex" ? "none" : "flex";
     searchBookNestedInputs.style.display = "none";
   });
 
   searchBookMainInput.addEventListener("click", () => {
-    searchBookNestedInputs.style.display = searchBookNestedInputs.style.display === "flex" ? "none" : "flex";
+    searchBookNestedInputs.style.display =
+      searchBookNestedInputs.style.display === "flex" ? "none" : "flex";
     addBookNestedInputs.style.display = "none";
   });
 
-  addBookBtn.addEventListener("click", addNewBook);
-  searchBtn.addEventListener("click", searchBooks);
+  addBookBtn.addEventListener("click", () => {
+    addNewBook();
+    closeInputFields();
+  });
+  searchBtn.addEventListener("click", () => {
+    searchBooks();
+    closeInputFields();
+  });
   viewReadBooksBtn.addEventListener("click", toggleReadBooks);
   viewDeletedBooksBtn.addEventListener("click", toggleDeletedBooks);
   refreshBtn.addEventListener("click", refreshBooks);
@@ -133,24 +143,35 @@ document.addEventListener("DOMContentLoaded", function () {
     const editBtn = document.createElement("button");
     editBtn.className = "bookbtn";
     editBtn.textContent = "Редактировать";
-    editBtn.addEventListener("click", () => handleEditBook(bookContainer, bookData));
+    editBtn.addEventListener("click", () =>
+      handleEditBook(bookContainer, bookData)
+    );
 
     const deleteBtn = document.createElement("button");
     deleteBtn.className = "bookbtn";
     deleteBtn.textContent = "Удалить";
-    deleteBtn.addEventListener("click", () => handleDeleteBook(bookContainer, bookData));
+    deleteBtn.addEventListener("click", () =>
+      handleDeleteBook(bookContainer, bookData)
+    );
 
     const statusBtn = document.createElement("button");
     statusBtn.className = "bookbtn";
     statusBtn.textContent = bookData.status ? "Не прочитано" : "Прочитано";
-    statusBtn.addEventListener("click", () => handleStatusChange(bookContainer, bookData, statusBtn, status));
+    statusBtn.addEventListener("click", () =>
+      handleStatusChange(bookContainer, bookData, statusBtn, status)
+    );
 
     bookContainer.append(
-      titleLabel, title,
-      authorLabel, author,
-      genreLabel, genre,
-      yearLabel, year,
-      statusLabel, status,
+      titleLabel,
+      title,
+      authorLabel,
+      author,
+      genreLabel,
+      genre,
+      yearLabel,
+      year,
+      statusLabel,
+      status,
       editBtn,
       deleteBtn,
       statusBtn
@@ -170,13 +191,20 @@ document.addEventListener("DOMContentLoaded", function () {
       const authorMatch = book.author.toLowerCase().includes(searchAuthor);
       const genreMatch = book.genre.toLowerCase().includes(searchGenre);
       const yearMatch = searchYear === "" || book.year === searchYear;
-      const statusMatch = searchStatus === "" || (searchStatus === "read" && book.status) || (searchStatus === "unread" && !book.status);
+      const statusMatch =
+        searchStatus === "" ||
+        (searchStatus === "read" && book.status) ||
+        (searchStatus === "unread" && !book.status);
 
-      return titleMatch && authorMatch && genreMatch && yearMatch && statusMatch;
+      return (
+        titleMatch && authorMatch && genreMatch && yearMatch && statusMatch
+      );
     });
 
     allBooks.innerHTML = "";
-    filteredBooks.forEach((book) => allBooks.appendChild(createBookElement(book)));
+    filteredBooks.forEach((book) =>
+      allBooks.appendChild(createBookElement(book))
+    );
   }
 
   function handleEditBook(container, bookData) {
@@ -185,7 +213,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     inputs.forEach((input) => (input.readOnly = !isEditable));
 
-    const editBtn = Array.from(container.querySelectorAll(".bookbtn")).find((btn) => btn.textContent === "Редактировать" || btn.textContent === "Сохранить");
+    const editBtn = Array.from(container.querySelectorAll(".bookbtn")).find(
+      (btn) =>
+        btn.textContent === "Редактировать" || btn.textContent === "Сохранить"
+    );
     editBtn.textContent = isEditable ? "Сохранить" : "Редактировать";
 
     if (!isEditable) {
@@ -198,7 +229,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function handleDeleteBook(container, bookData) {
-    wholeList.newBooks = wholeList.newBooks.filter((book) => book.title !== bookData.title);
+    wholeList.newBooks = wholeList.newBooks.filter(
+      (book) => book.title !== bookData.title
+    );
     wholeList.deletedBooks.push(bookData);
     container.remove();
     saveBooksToLocalStorage();
@@ -230,7 +263,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (wholeList.newBooks.length === 0) {
       allBooks.innerHTML = "";
     } else {
-      wholeList.newBooks.forEach((book) => allBooks.appendChild(createBookElement(book)));
+      wholeList.newBooks.forEach((book) =>
+        allBooks.appendChild(createBookElement(book))
+      );
     }
     readBooksSection.style.display = "none";
     deletedBooksSection.style.display = "none";
@@ -253,7 +288,9 @@ document.addEventListener("DOMContentLoaded", function () {
     allBooks.innerHTML = "";
     readBooksSection.innerHTML = "";
     const readBooks = wholeList.newBooks.filter((book) => book.status);
-    readBooks.forEach((book) => readBooksSection.appendChild(createBookElement(book)));
+    readBooks.forEach((book) =>
+      readBooksSection.appendChild(createBookElement(book))
+    );
     readBooksSection.style.display = "flex";
     allBooks.style.display = "none";
   }
@@ -261,7 +298,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function toggleDeletedBooks() {
     allBooks.innerHTML = "";
     deletedBooksSection.innerHTML = "";
-    wholeList.deletedBooks.forEach((book) => deletedBooksSection.appendChild(createDeletedBookElement(book)));
+    wholeList.deletedBooks.forEach((book) =>
+      deletedBooksSection.appendChild(createDeletedBookElement(book))
+    );
     deletedBooksSection.style.display = "flex";
     allBooks.style.display = "none";
   }
@@ -323,14 +362,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const deleteForeverBtn = document.createElement("button");
     deleteForeverBtn.className = "bookbtn";
     deleteForeverBtn.textContent = "Удалить навсегда";
-    deleteForeverBtn.addEventListener("click", () => handlePermanentDelete(bookContainer, bookData));
+    deleteForeverBtn.addEventListener("click", () =>
+      handlePermanentDelete(bookContainer, bookData)
+    );
 
     bookContainer.append(
-      titleLabel, title,
-      authorLabel, author,
-      genreLabel, genre,
-      yearLabel, year,
-      statusLabel, status,
+      titleLabel,
+      title,
+      authorLabel,
+      author,
+      genreLabel,
+      genre,
+      yearLabel,
+      year,
+      statusLabel,
+      status,
       restoreBtn,
       deleteForeverBtn
     );
@@ -338,7 +384,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function handleRestoreBook(bookData) {
-    wholeList.deletedBooks = wholeList.deletedBooks.filter((book) => book.title !== bookData.title);
+    wholeList.deletedBooks = wholeList.deletedBooks.filter(
+      (book) => book.title !== bookData.title
+    );
     wholeList.newBooks.push(bookData);
     refreshBooks();
     saveBooksToLocalStorage();
@@ -346,7 +394,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function handlePermanentDelete(container, bookData) {
-    wholeList.deletedBooks = wholeList.deletedBooks.filter((book) => book.title !== bookData.title);
+    wholeList.deletedBooks = wholeList.deletedBooks.filter(
+      (book) => book.title !== bookData.title
+    );
     container.remove();
     saveBooksToLocalStorage();
     updateBookCount();
@@ -355,5 +405,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateBookCount() {
     const bookCountElement = document.getElementById("bookCount");
     bookCountElement.textContent = `Количество книг: ${wholeList.newBooks.length}`;
+  }
+  function closeInputFields() {
+    addBookNestedInputs.style.display = "none";
+    searchBookNestedInputs.style.display = "none";
   }
 });
