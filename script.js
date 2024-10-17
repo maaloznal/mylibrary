@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
   addBookBtn.addEventListener("click", () => {
     addNewBook();
     closeInputFields();
+    scrollToLastBook();
   });
   searchBtn.addEventListener("click", () => {
     searchBooks();
@@ -409,5 +410,12 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeInputFields() {
     addBookNestedInputs.style.display = "none";
     searchBookNestedInputs.style.display = "none";
+  }
+
+  function scrollToLastBook() {
+    const lastBook = allBooks.lastElementChild;
+    if (lastBook) {
+      lastBook.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 });
