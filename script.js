@@ -227,7 +227,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function refreshBooks() {
     allBooks.innerHTML = "";
-    wholeList.newBooks.forEach((book) => allBooks.appendChild(createBookElement(book)));
+    if (wholeList.newBooks.length === 0) {
+      allBooks.innerHTML = "";
+    } else {
+      wholeList.newBooks.forEach((book) => allBooks.appendChild(createBookElement(book)));
+    }
     readBooksSection.style.display = "none";
     deletedBooksSection.style.display = "none";
     allBooks.style.display = "flex";
