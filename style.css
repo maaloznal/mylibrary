@@ -169,7 +169,7 @@ input#searchBtn {
   margin: 20px;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 768px) {
   nav {
     display: flex;
     justify-content: space-around;
@@ -180,7 +180,7 @@ input#searchBtn {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
+  width: 70%;
   margin: 10px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -202,5 +202,26 @@ header {
   color: white;
   padding: 10px;
   text-align: center;
+}
+
+div#allBooks {
+  gap: 42px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+div#deletedBooks {
+  justify-content: space-around;
+  gap: 42px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+div#readBooks {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 42px;
+  flex-direction: row;
 }
 }
