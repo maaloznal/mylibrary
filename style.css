@@ -1,0 +1,191 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #4CAF50;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-input {
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.nested-inputs {
+  display: none;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.nested-input {
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#allbooks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.book.read {
+  background-color: #d4edda;
+}
+
+.book input {
+  font-size: larger;
+  text-align: center;
+  flex: 1;
+  margin: 5px;
+  border: none;
+  background-color: transparent;
+}
+
+.book span {
+  margin: 5px;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+main {
+  padding: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+div#allBooks {
+  gap: 42px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.label {
+  color: darkgreen;
+  font-family: initial;
+  text-align: center;
+}
+
+div#deletedBooks {
+  gap: 42px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+div#readBooks {
+  flex-wrap: wrap;
+  gap: 42px;
+  flex-direction: row;
+}
+
+input#addBookBtn {
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input#searchBtn {
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.header-text {
+  margin: 20px;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    flex-direction: column-reverse;
+}
+.book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+}

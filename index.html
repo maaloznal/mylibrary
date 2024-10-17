@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Моя библиотека</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-text">
+        <h1>Моя библиотека</h1>
+        <div id="bookCount">Количество книг: 0</div>
+      </div>
+      <button id="viewReadBooksBtn">Прочитанные книги</button>
+      <button id="viewDeletedBooksBtn">Удаленные книги</button>
+      <button id="refreshBtn">Обновить</button>
+      <button id="clearAllBtn">Удалить все</button>
+      <nav>
+        <div class="add-button">
+          <div class="input-container">
+            <input
+              type="text"
+              class="main-input"
+              id="addBookMainInput"
+              value="Добавить книгу"
+              readonly
+              placeholder="Добавить книгу"
+            />
+            <div class="nested-inputs" id="addBookNestedInputs">
+              <input
+                type="text"
+                id="title"
+                class="nested-input"
+                placeholder="название книги"
+              />
+              <input
+                type="text"
+                id="author"
+                class="nested-input"
+                placeholder="автор книги"
+              />
+              <input
+                type="text"
+                id="genre"
+                class="nested-input"
+                placeholder="жанр книги"
+              />
+              <input
+                type="text"
+                id="year"
+                class="nested-input"
+                placeholder="год издания книги"
+              />
+              <input
+                type="text"
+                id="status"
+                class="nested-input"
+                placeholder="статус"
+                value="unread"
+                readonly
+              />
+              <input type="button" id="addBookBtn" value="Добавить" />
+            </div>
+          </div>
+        </div>
+        <div class="search-button">
+          <div class="input-container">
+            <input
+              type="text"
+              class="main-input"
+              id="searchBookMainInput"
+              value="Найти книгу"
+              readonly
+              placeholder="Найти книгу"
+            />
+            <div class="nested-inputs" id="searchBookNestedInputs">
+              <input
+                type="text"
+                id="searchTitle"
+                class="nested-input"
+                placeholder="название книги"
+              />
+              <input
+                type="text"
+                id="searchAuthor"
+                class="nested-input"
+                placeholder="автор книги"
+              />
+              <input
+                type="text"
+                id="searchGenre"
+                class="nested-input"
+                placeholder="жанр книги"
+              />
+              <input
+                type="text"
+                id="searchYear"
+                class="nested-input"
+                placeholder="год издания книги"
+              />
+              <input
+                type="text"
+                id="searchStatus"
+                class="nested-input"
+                placeholder="статус"
+              />
+              <input type="button" id="searchBtn" value="Найти" />
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="allbooks" id="allBooks">
+        <div class="book">
+          <input
+            class="booktext"
+            type="text"
+            readonly
+            placeholder="название книги"
+          />
+          <input
+            class="booktext"
+            type="text"
+            readonly
+            placeholder="автор книги"
+          />
+          <input
+            class="booktext"
+            type="text"
+            readonly
+            placeholder="жанр книги"
+          />
+          <input
+            class="booktext"
+            type="number"
+            readonly
+            placeholder="год издания книги"
+          />
+          <input
+            class="booktext"
+            type="text"
+            readonly
+            placeholder="статус книги"
+          />
+          <span class="btn">
+            <button type="button" class="bookbtn">Редактировать</button>
+            <button type="button" class="bookbtn">Удалить</button>
+            <button type="button" class="bookbtn">Прочитано</button>
+          </span>
+        </div>
+      </div>
+      <div class="allbooks" id="deletedBooks" style="display: none"></div>
+      <div class="allbooks" id="readBooks" style="display: none"></div>
+    </main>
+    <footer></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
