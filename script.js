@@ -413,10 +413,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function scrollToLastBook() {
-    function scrollToLastBook() {
-      const lastBook = allBooks.lastElementChild;
-      if (lastBook) {
-        lastBook.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-      }
+    const lastBook = allBooks.lastElementChild;
+    if (lastBook) {
+      lastBook.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
+  }
 });
