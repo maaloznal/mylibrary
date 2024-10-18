@@ -9,6 +9,7 @@
       {
         "aria-valid-attr": "off"
       }
-    ]
+    ],
+    "meta-viewport": "off"
   }
 }
