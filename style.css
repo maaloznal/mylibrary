@@ -76,12 +76,14 @@ nav {
 }
 
 .book input {
-  font-size: larger;
-  text-align: center;
-  flex: 1;
-  margin: 5px;
-  border: none;
-  background-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-size: larger;
+    text-align: center;
+    flex: 1;
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+    letter-spacing: 1px;
 }
 
 .book span {
@@ -233,5 +235,6 @@ div#readBooks {
   margin: 5px;
   border: none;
   background-color: transparent;
+  letter-spacing: 1px;
 }
 }
