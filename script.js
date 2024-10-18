@@ -55,8 +55,15 @@ document.addEventListener("DOMContentLoaded", function () {
     searchBooks();
     closeInputFields();
   });
-  viewReadBooksBtn.addEventListener("click", toggleReadBooks);
-  viewDeletedBooksBtn.addEventListener("click", toggleDeletedBooks);
+  viewReadBooksBtn.addEventListener("click", () => { 
+    clearPage();
+    toggleReadBooks();
+  
+  });
+  viewDeletedBooksBtn.addEventListener("click", () => { 
+    clearPage();
+    toggleDeletedBooks();
+  });
   refreshBtn.addEventListener("click", refreshBooks);
   clearAllBtn.addEventListener("click", clearAllBooks);
 
@@ -417,5 +424,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (lastBook) {
       lastBook.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
+  }
+
+  function clearPage() {
+    allBooks.innerHTML = "";
+    readBooksSection.innerHTML = "";
+    deletedBooksSection.innerHTML = "";
   }
 });
