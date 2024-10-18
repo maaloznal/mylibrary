@@ -224,4 +224,14 @@ div#readBooks {
   gap: 42px;
   flex-direction: row;
 }
+
+.book input {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: larger;
+  text-align: center;
+  flex: 1;
+  margin: 5px;
+  border: none;
+  background-color: transparent;
+}
 }
